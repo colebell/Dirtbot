@@ -32,12 +32,14 @@ public class Main {
             return;
         }
 
-        JDABuilder jdaBuilder = (JDABuilder) JDABuilder.createDefault(botToken);
+        JDABuilder jdaBuilder = JDABuilder.createDefault(botToken);
         JDA jda = jdaBuilder
                 .setActivity(Activity.playing("dirtbot: meow"))
                 .setStatus(OnlineStatus.ONLINE)
                 .addEventListeners(new MessageEventListener())
-                .enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT)
+                .enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MESSAGE_REACTIONS)
                 .build();
+
+        jda.upsertCommand("init", "dirtbot: monitor this channel").queue(); //slash command todo check guildOnly
     }
 }
