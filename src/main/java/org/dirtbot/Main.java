@@ -1,6 +1,6 @@
 package org.dirtbot;
 
-import Events.MessageEventListener;
+import org.dirtbot.Events.MessageEventListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -11,8 +11,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
 
@@ -40,6 +38,6 @@ public class Main {
                 .enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.MESSAGE_CONTENT, GatewayIntent.GUILD_MESSAGE_REACTIONS)
                 .build();
 
-        jda.upsertCommand("init", "dirtbot: monitor this channel").queue(); //slash command todo check guildOnly
+        jda.upsertCommand("init", "dirtbot: monitor this channel").queue();
     }
 }
